@@ -10,11 +10,7 @@ const nextConfig: NextConfig = {
   },
   // Allow access to remote image placeholder.
   images: {
-    localPatterns: [
-      {
-        pathname: '/**',
-      },
-    ],
+    unoptimized: true, // Common fix for broken images on Vercel deployments
     remotePatterns: [
       {
         protocol: 'https',
@@ -30,11 +26,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
-  allowedDevOrigins: [
-    'ais-dev-cst3df4hhwomxejriyjyf7-345697431156.europe-west2.run.app',
-    'ais-pre-cst3df4hhwomxejriyjyf7-345697431156.europe-west2.run.app',
-  ],
+  // output: 'standalone', // Removed for better compatibility with Vercel/managed environments
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.

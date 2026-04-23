@@ -16,6 +16,14 @@ import {
   X
 } from 'lucide-react';
 
+// Static Assets
+import logoHero from '@/public/logo-hero.png';
+import aboutUs from '@/public/about-us.png';
+import alphaImg from '@/public/alpha.png';
+import betaImg from '@/public/beta.png';
+import sigmaImg from '@/public/sigma.png';
+import omegaImg from '@/public/omega.png';
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -226,12 +234,12 @@ const Hero = () => {
         >
           <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px]">
             <Image
-              src="/logo-hero.png"
+              src={logoHero}
               alt="Dinnamikus Logo"
               fill
               sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 400px"
               className="object-contain drop-shadow-[0_0_30px_rgba(255,106,0,0.2)]"
-              referrerPolicy="no-referrer"
+              priority
             />
           </div>
           {/* Decorative glow behind logo */}
@@ -327,12 +335,11 @@ const About = () => {
             className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-2xl group"
           >
             <Image
-              src="/about-us.png"
+              src={aboutUs}
               alt="Dinnamikus Team"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover hover:scale-105 transition-all duration-700"
-              referrerPolicy="no-referrer"
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-surface/40 to-transparent"></div>
@@ -345,10 +352,10 @@ const About = () => {
 
 const Fraternities = () => {
   const fraternities = [
-    { name: "Alpha", year: "2018", desc: "A linhagem dos líderes. Focada em networking executivo e estratégia.", symbol: "Α", bgSymbol: "A", color: "primary", image: "/alpha.png" },
-    { name: "Beta", year: "2019", desc: "A vanguarda criativa. Onde o design e a arte encontram a academia.", symbol: "Β", bgSymbol: "B", color: "secondary", image: "/beta.png" },
-    { name: "Sigma", year: "2021", desc: "O núcleo tecnológico. Engenharia e inovação pura.", symbol: "Σ", bgSymbol: "Σ", color: "tertiary", image: "/sigma.png" },
-    { name: "Omega", year: "2024", desc: "A nova ordem. Ousadia e quebra de paradigmas sociais.", symbol: "Ω", bgSymbol: "Ω", color: "error", image: "/omega.png" }
+    { name: "Alpha", year: "2018", desc: "A linhagem dos líderes. Focada em networking executivo e estratégia.", symbol: "Α", bgSymbol: "A", color: "primary", image: alphaImg },
+    { name: "Beta", year: "2019", desc: "A vanguarda criativa. Onde o design e a arte encontram a academia.", symbol: "Β", bgSymbol: "B", color: "secondary", image: betaImg },
+    { name: "Sigma", year: "2021", desc: "O núcleo tecnológico. Engenharia e inovação pura.", symbol: "Σ", bgSymbol: "Σ", color: "tertiary", image: sigmaImg },
+    { name: "Omega", year: "2024", desc: "A nova ordem. Ousadia e quebra de paradigmas sociais.", symbol: "Ω", bgSymbol: "Ω", color: "error", image: omegaImg }
   ];
 
   // Duplicate for seamless loop
@@ -395,12 +402,11 @@ const Fraternities = () => {
             >
               <div className="absolute inset-0 z-0">
                 <Image 
-                  src={`${f.image}?v=2`} 
+                  src={f.image} 
                   alt={f.name} 
                   fill 
                   sizes="160px"
                   className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
-                  referrerPolicy="no-referrer"
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
