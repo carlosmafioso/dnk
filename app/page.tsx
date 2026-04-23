@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { motion, useScroll, useSpring, AnimatePresence, useTransform } from 'motion/react';
 import { 
   Search, 
   Rocket, 
@@ -15,7 +15,6 @@ import {
   Menu,
   X
 } from 'lucide-react';
-import { AnimatePresence, useTransform } from 'motion/react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
