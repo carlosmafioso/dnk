@@ -58,3 +58,16 @@
     @apply text-[10px] uppercase tracking-[0.2em] font-semibold opacity-60;
   }
 }
+
+/* Hide Next.js / Vercel Toolbar and Indicator */
+[data-nextjs-toast], 
+[data-nextjs-dialog-overlay], 
+.__next-error-overlay-indicator, 
+[data-vercel-toolbar],
+#vc-toolbar-host,
+.vercel-toolbar-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
