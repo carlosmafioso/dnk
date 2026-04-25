@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
   },
   // Allow access to remote image placeholder.
   images: {
-    unoptimized: true, // Common fix for broken images on Vercel deployments
     remotePatterns: [
       {
         protocol: 'https',

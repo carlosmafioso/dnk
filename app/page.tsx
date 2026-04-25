@@ -13,7 +13,10 @@ import {
   Share2, 
   Globe,
   Menu,
-  X
+  X,
+  Instagram,
+  Facebook,
+  Linkedin
 } from 'lucide-react';
 
 // Static Assets
@@ -51,10 +54,10 @@ const Navbar = () => {
   );
 
   const navLinks = React.useMemo(() => [
-    { name: 'Início', href: '#inicio' },
-    { name: 'Sobre Nós', href: '#sobre-nos' },
-    { name: 'Fraternidades', href: '#fraternidades' },
-    { name: 'Parceiros', href: '#parceiros' },
+    { name: 'Início', href: '#inicio', icon: <Rocket className="w-5 h-5" /> },
+    { name: 'Sobre Nós', href: '#sobre-nos', icon: <Eye className="w-5 h-5" /> },
+    { name: 'Fraternidades', href: '#fraternidades', icon: <Award className="w-5 h-5" /> },
+    { name: 'Parceiros', href: '#parceiros', icon: <Share2 className="w-5 h-5" /> },
   ], []);
 
   return (
@@ -129,44 +132,81 @@ const Navbar = () => {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[280px] bg-surface border-l border-white/10 z-[70] md:hidden flex flex-col p-8 shadow-2xl"
+              transition={{ type: 'tween', ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
+              className="fixed top-0 right-0 h-full w-[85%] max-w-[320px] bg-[#160038] border-l border-white/10 z-[70] md:hidden flex flex-col shadow-2xl overflow-hidden will-change-transform transform-gpu"
             >
-              <div className="flex justify-between items-center mb-12">
-                <span className="text-lg font-bold tracking-tighter text-white uppercase font-headline">MENU</span>
+              {/* Header */}
+              <div className="flex justify-between items-center p-6 border-b border-white/5 bg-white/5">
+                <span className="text-sm font-bold tracking-[0.3em] text-white/40 uppercase font-headline">NAVEGAÇÃO</span>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-white/60 hover:text-white p-2 transition-colors"
+                  className="text-white/60 hover:text-white p-2 bg-white/5 rounded-xl transition-all active:scale-90"
                   aria-label="Fechar menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-6">
+              {/* Links */}
+              <div className="flex flex-col p-6 gap-2 flex-grow overflow-y-auto">
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: 0.1 + index * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-2xl font-headline font-light text-white/60 hover:text-secondary-container transition-colors"
+                    className="flex items-center gap-4 p-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/5 transition-all group"
                   >
-                    {link.name}
+                    <div className="p-3 bg-white/5 rounded-xl text-white/40 group-hover:text-secondary-container group-hover:bg-secondary-container/10 transition-all">
+                      {link.icon}
+                    </div>
+                    <span className="text-xl font-headline font-light tracking-tight">{link.name}</span>
                   </motion.a>
                 ))}
               </div>
 
-              <div className="mt-auto pt-12 border-t border-white/5">
-                <button className="w-full bg-secondary-container text-on-secondary py-4 rounded-2xl font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_20px_rgba(255,106,0,0.4)] transition-all duration-300">
-                  Comprar Bilhetes
-                </button>
-                <p className="text-white/20 text-[10px] text-center mt-6 tracking-[0.2em] uppercase font-headline">
+              {/* Footer Actions */}
+              <div className="p-6 bg-white/5 border-t border-white/5 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <button className="w-full bg-secondary-container text-on-secondary py-4 rounded-2xl font-bold text-sm tracking-widest uppercase shadow-[0_10px_20px_rgba(255,106,0,0.2)] active:scale-95 transition-all">
+                    Comprar Bilhetes
+                  </button>
+                </motion.div>
+                
+                <div className="flex justify-center gap-4">
+                  {[Instagram, Facebook, Linkedin, Share2, Globe].map((Icon, i) => (
+                    <motion.button
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 + i * 0.1 }}
+                      className="p-3 bg-white/5 rounded-xl text-white/30 hover:text-white/60 transition-colors"
+                    >
+                      <Icon className="w-5 h-5" />
+                    </motion.button>
+                  ))}
+                </div>
+
+                <p className="text-white/10 text-[9px] text-center tracking-[0.3em] uppercase font-headline">
                   DINNAMIKUS © 2024
                 </p>
               </div>
+
+              {/* Animated decorative element */}
+              <motion.div 
+                className="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary-container/10 blur-[100px] rounded-full"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              />
             </motion.div>
           </>
         )}
@@ -186,6 +226,7 @@ const Hero = () => {
           sizes="100vw"
           className="object-cover"
           priority
+          decoding="async"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#160038] via-[#160038]/95 lg:via-[#160038]/90 to-transparent"></div>
@@ -338,8 +379,9 @@ const About = () => {
               src={aboutUs}
               alt="Dinnamikus Team"
               fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 33vw"
               className="object-cover hover:scale-105 transition-all duration-700"
+              loading="lazy"
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-surface/40 to-transparent"></div>
@@ -405,9 +447,11 @@ const Fraternities = () => {
                   src={f.image} 
                   alt={f.name} 
                   fill 
-                  sizes="160px"
+                  sizes="(max-width: 768px) 140px, 160px"
                   className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
+                  loading="lazy"
                   decoding="async"
+                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
               </div>
@@ -642,18 +686,44 @@ const Footer = () => {
         </div>
         <div className="mt-6 md:mt-0 flex gap-3">
           <a 
-            href="#" 
-            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
-            aria-label="Partilhar"
+            href="https://instagram.com" 
+            target="_blank"
             rel="noopener noreferrer"
+            className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary transition-all group active:scale-90"
+            aria-label="Instagram"
+          >
+            <Instagram className="text-white/40 group-hover:text-inherit w-5 h-5" />
+          </a>
+          <a 
+            href="https://facebook.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary transition-all group active:scale-90"
+            aria-label="Facebook"
+          >
+            <Facebook className="text-white/40 group-hover:text-inherit w-5 h-5" />
+          </a>
+          <a 
+            href="https://linkedin.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary transition-all group active:scale-90"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="text-white/40 group-hover:text-inherit w-5 h-5" />
+          </a>
+          <div className="w-[1px] h-10 bg-white/10 mx-2" />
+          <a 
+            href="#" 
+            className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer active:scale-90"
+            aria-label="Partilhar"
           >
             <Share2 className="text-white w-4 h-4" />
           </a>
           <a 
             href="#" 
-            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer active:scale-90"
             aria-label="Website Global"
-            rel="noopener noreferrer"
           >
             <Globe className="text-white w-4 h-4" />
           </a>
@@ -672,16 +742,18 @@ const BottomNav = () => {
   ];
 
   return (
-    <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[400px] bg-surface/85 backdrop-blur-lg border border-white/10 rounded-2xl z-50 md:hidden shadow-2xl px-2 py-2 transform-gpu">
+    <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] bg-[#160038]/90 backdrop-blur-md border border-white/10 rounded-2xl z-50 md:hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-2 py-2 transform-gpu">
       <div className="flex justify-around items-center">
         {navItems.map((item) => (
           <a 
             key={item.name}
             href={item.href}
-            className="flex flex-col items-center gap-1 p-2 text-white/40 hover:text-secondary-container transition-colors"
+            className="flex flex-col items-center gap-1.5 p-3 text-white/40 hover:text-secondary-container active:scale-90 transition-all group"
           >
-            {item.icon}
-            <span className="text-[8px] uppercase font-headline font-bold tracking-widest">{item.name}</span>
+            <div className="group-hover:scale-110 transition-transform">
+              {item.icon}
+            </div>
+            <span className="text-[7px] uppercase font-headline font-bold tracking-[0.2em]">{item.name}</span>
           </a>
         ))}
       </div>
@@ -692,15 +764,16 @@ const BottomNav = () => {
 export default function LandingPage() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 150,
+    damping: 18,
+    mass: 0.5,
     restDelta: 0.001
   });
 
   return (
     <main className="min-h-screen bg-surface">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-secondary-container z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-secondary-container z-[60] origin-left shadow-[0_0_10px_rgba(255,106,0,0.8)]"
         style={{ scaleX }}
       />
       <Navbar />
