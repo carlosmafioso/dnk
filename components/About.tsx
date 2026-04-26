@@ -26,17 +26,18 @@ export const About = () => {
   ];
 
   return (
-    <section id="sobre-nos" className="bg-white py-24 md:py-48 lg:py-56 text-surface">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16">
-        <div className="lg:col-span-7 flex flex-col gap-8 md:gap-12">
+    <section id="sobre-nos" className="bg-white py-24 md:py-32 lg:py-56 text-surface">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="lg:col-span-7 flex flex-col gap-10 md:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center lg:text-left"
           >
-            <h2 className="font-headline font-light text-3xl md:text-4xl tracking-tight text-surface mb-6">Quem Somos</h2>
-            <div className="font-sans text-sm md:text-base text-surface/90 leading-relaxed space-y-4">
+            <h2 className="font-headline font-light text-3xl md:text-5xl lg:text-4xl tracking-tight text-surface mb-8">Quem Somos</h2>
+            <div className="font-sans text-base md:text-lg lg:text-base text-surface/90 leading-relaxed space-y-6 max-w-3xl mx-auto lg:mx-0">
               <p>
                 <span className="font-bold text-surface">A DINNAMIKUS EVENTOS</span> é a primeira produtora em Angola especializada, de forma exclusiva, no público estudantil universitário — o segmento mais jovem, influente e determinante nas tendências de consumo atuais e futuras.
               </p>
@@ -59,7 +60,7 @@ export const About = () => {
                 }
               }
             }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 lg:gap-6"
           >
             {features.map((feature, index) => (
               <motion.div 
@@ -69,17 +70,17 @@ export const About = () => {
                   visible: { opacity: 1, y: 0 }
                 }}
                 transition={{ duration: 0.5 }}
-                className="p-5 md:p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group"
+                className="p-6 md:p-5 lg:p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group text-center lg:text-left"
               >
-                <div className="mb-3 md:mb-4 transform group-hover:scale-110 transition-transform duration-500">{feature.icon}</div>
-                <h3 className="font-headline font-bold text-sm md:text-base mb-1 md:mb-2 text-surface">{feature.title}</h3>
-                <p className="text-slate-500 text-[10px] md:text-xs leading-relaxed">{feature.description}</p>
+                <div className="mb-4 md:mb-3 lg:mb-4 flex justify-center lg:justify-start transform group-hover:scale-110 transition-transform duration-500">{feature.icon}</div>
+                <h3 className="font-headline font-bold text-base md:text-sm lg:text-base mb-2 md:mb-1 lg:mb-2 text-surface">{feature.title}</h3>
+                <p className="text-slate-500 text-xs md:text-[10px] lg:text-xs leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
 
-        <div className="lg:col-span-5 h-full min-h-[350px] md:min-h-[500px]">
+        <div className="lg:col-span-5 h-[400px] md:h-[500px] lg:h-full">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}

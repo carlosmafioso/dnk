@@ -36,14 +36,21 @@ export default function LandingPage() {
     restDelta: 0.001
   });
 
-  const barHeight = useTransform(scrollYProgress, [0.98, 1], ["4px", "8px"]);
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["#FF6A00", "#FF8C00", "#FFD700"]
+  );
+
+  const barHeight = useTransform(scrollYProgress, [0, 0.1, 1], ["2px", "4px", "4px"]);
+  const barOpacity = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
   const barShadow = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [
       "0 0 0px rgba(255,106,0,0)",
       "0 0 10px rgba(255,106,0,0.5)",
-      "0 0 30px rgba(255,106,0,0.9)"
+      "0 0 20px rgba(255,106,0,0.8)"
     ]
   );
 
@@ -56,10 +63,12 @@ export default function LandingPage() {
     >
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 bg-secondary-container z-[60] origin-left will-change-transform"
+        className="fixed top-0 left-0 right-0 z-[60] origin-left will-change-transform"
         style={{ 
           scaleX,
           height: barHeight,
+          backgroundColor,
+          opacity: barOpacity,
           boxShadow: barShadow
         }}
       />
