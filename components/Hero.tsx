@@ -4,7 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { smoothScrollTo } from '@/lib/utils';
-import logoHero from '@/public/logo-hero.webp';
+
+const logoHero = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/logo-hero.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL2xvZ28taGVyby53ZWJwIiwiaWF0IjoxNzc3MjA2NDQ3LCJleHAiOjc1NzI5MTI2NDQ3fQ.cZPPLFTyvwfQ9sd_pAXGh9VeVXmLplbZAY_C1TFXli8";
 
 export const Hero = () => {
   const containerVariants = {
@@ -42,6 +43,7 @@ export const Hero = () => {
           priority
           decoding="async"
           referrerPolicy="no-referrer"
+          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#160038] via-[#160038]/95 lg:via-[#160038]/90 to-transparent"></div>
       </div>
@@ -111,6 +113,7 @@ export const Hero = () => {
               sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 400px"
               className="object-contain drop-shadow-[0_0_30px_rgba(255,106,0,0.2)]"
               priority
+              unoptimized
             />
           </div>
           <div className="absolute inset-0 bg-secondary/10 blur-[60px] md:blur-[100px] rounded-full -z-10"></div>

@@ -4,7 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Rocket, Eye, Award } from 'lucide-react';
-import aboutUs from '@/public/about-us.webp';
+
+const aboutUs = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/about-us.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL2Fib3V0LXVzLndlYnAiLCJpYXQiOjE3NzcyMDYzMjEsImV4cCI6NzU3MjkxMjYzMjF9.UIGOZPfalZBqwJOrZxijcAeCNvZLBZT6tW-nvPBAslU";
 
 export const About = () => {
   const features = [
@@ -96,6 +97,7 @@ export const About = () => {
               className="object-cover hover:scale-105 transition-all duration-700"
               loading="lazy"
               decoding="async"
+              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-surface/40 to-transparent"></div>
           </motion.div>

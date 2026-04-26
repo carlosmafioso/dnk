@@ -3,10 +3,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import alphaImg from '@/public/alpha.webp';
-import betaImg from '@/public/beta.webp';
-import sigmaImg from '@/public/sigma.webp';
-import omegaImg from '@/public/omega.webp';
+
+const alphaImg = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/alpha.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL2FscGhhLndlYnAiLCJpYXQiOjE3NzcyMDYzNTQsImV4cCI6NzU3MjkxMjYzNTR9.Uxx8Z0nvGII3Dl0v6-XeZdGbOEUKT0duKBD7hiiOOsw";
+const betaImg = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/beta.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL2JldGEud2VicCIsImlhdCI6MTc3NzIwNjM4NCwiZXhwIjo3NTcyOTEyNjM4NH0.OWHmkzbASbyKeSR-KL9LYcsp_5GlOlOogCSxrEZCLFY";
+const sigmaImg = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/sigma.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL3NpZ21hLndlYnAiLCJpYXQiOjE3NzcyMDY0OTYsImV4cCI6NzU3MjkxMjY0OTZ9.y-NCv-QkKJS5gAEuCkw9v62uRIkPM_P7YjCVKdqFtrY";
+const omegaImg = "https://wqmyqftzqpnhwagiiesg.supabase.co/storage/v1/object/sign/dnkeventos/omega.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZjliNWI0MC1hNjNhLTRkYWQtOGFjOC00NWMyMzcyMzFiZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkbmtldmVudG9zL29tZWdhLndlYnAiLCJpYXQiOjE3NzcyMDY0NzMsImV4cCI6NzU3MjkxMjY0NzN9.b-bhXeAfkBGccmQLjaACU7imitb0t8dEPDaDBy04fF0";
 
 export const Fraternities = () => {
   const fraternities = [
@@ -66,6 +67,7 @@ export const Fraternities = () => {
                   className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
                   loading="lazy"
                   decoding="async"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
               </div>

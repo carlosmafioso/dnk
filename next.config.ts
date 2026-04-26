@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'wqmyqftzqpnhwagiiesg.supabase.co',
+        pathname: '/**',
+      },
     ],
   },
   // output: 'standalone', // Removed for better compatibility with Vercel/managed environments
