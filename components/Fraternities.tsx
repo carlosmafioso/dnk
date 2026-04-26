@@ -23,10 +23,10 @@ export const Fraternities = () => {
     <section id="fraternidades" className="bg-surface py-24 md:py-48 lg:py-56 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 mb-12 md:mb-16">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-center"
         >
           <h2 className="font-headline font-light text-2xl md:text-4xl mb-4 text-white">

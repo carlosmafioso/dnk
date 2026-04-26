@@ -9,10 +9,10 @@ export const Projects = () => {
     <section id="projetos" className="bg-white py-24 md:py-48 lg:py-56">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 md:mb-16 text-left"
         >
           <h2 className="font-headline font-light text-2xl md:text-4xl text-surface mb-2">
@@ -23,13 +23,13 @@ export const Projects = () => {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: { opacity: 0 },
             visible: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.1
+                staggerChildren: 0.08
               }
             }
           }}
@@ -37,10 +37,10 @@ export const Projects = () => {
         >
           <motion.div 
             variants={{
-              hidden: { opacity: 0, scale: 0.95 },
-              visible: { opacity: 1, scale: 1 }
+              hidden: { opacity: 0, y: 30, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="sm:col-span-2 md:col-span-8 bg-surface rounded-3xl overflow-hidden group relative min-h-[350px] md:min-h-[450px] shadow-2xl flex items-end p-6 md:p-10"
           >
             <div className="relative z-10 text-left">
@@ -54,9 +54,10 @@ export const Projects = () => {
           
           <motion.div 
             variants={{
-              hidden: { opacity: 0, x: 20 },
-              visible: { opacity: 1, x: 0 }
+              hidden: { opacity: 0, x: 30, scale: 0.98 },
+              visible: { opacity: 1, x: 0, scale: 1 }
             }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4 bg-slate-50 rounded-3xl p-8 md:p-10 flex flex-col justify-between group hover:bg-secondary-container transition-all duration-500 shadow-sm hover:shadow-2xl text-left"
           >
             <span className="font-headline font-bold text-5xl md:text-7xl text-surface/5 -ml-1 -mt-2 group-hover:text-white/10 transition-colors">01</span>
@@ -68,9 +69,10 @@ export const Projects = () => {
 
           <motion.div 
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 30, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4 bg-slate-50 rounded-3xl p-8 md:p-10 flex flex-col justify-between group hover:bg-surface transition-all duration-500 shadow-sm hover:shadow-2xl text-left"
           >
             <span className="font-headline font-bold text-5xl md:text-7xl text-surface/5 -ml-1 -mt-2 group-hover:text-white/10 transition-colors">02</span>
@@ -82,9 +84,10 @@ export const Projects = () => {
 
           <motion.div 
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: 30, scale: 0.98 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4 bg-slate-50 rounded-3xl p-8 md:p-10 flex flex-col justify-between group hover:bg-[#160038] transition-all duration-500 shadow-sm hover:shadow-2xl text-left"
           >
             <span className="font-headline font-bold text-5xl md:text-7xl text-surface/5 -ml-1 -mt-2 group-hover:text-white/10 transition-colors">03</span>
@@ -96,9 +99,10 @@ export const Projects = () => {
 
           <motion.div 
             variants={{
-              hidden: { opacity: 0, x: 20 },
-              visible: { opacity: 1, x: 0 }
+              hidden: { opacity: 0, x: 30, scale: 0.98 },
+              visible: { opacity: 1, x: 0, scale: 1 }
             }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-4 md:gap-6"
           >
             <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 md:p-8 flex items-center gap-4 md:gap-5 hover:shadow-lg transition-all duration-300 text-left">

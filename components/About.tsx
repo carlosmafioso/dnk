@@ -31,10 +31,10 @@ export const About = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-7 flex flex-col gap-10 md:gap-14">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-center lg:text-left"
           >
             <h2 className="font-headline font-light text-3xl md:text-5xl lg:text-4xl tracking-tight text-surface mb-8">Quem Somos</h2>
@@ -51,13 +51,14 @@ export const About = () => {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.3 }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.2
+                  staggerChildren: 0.15,
+                  delayChildren: 0.1
                 }
               }
             }}
@@ -67,10 +68,10 @@ export const About = () => {
               <motion.div 
                 key={index}
                 variants={{
-                  hidden: { opacity: 0, y: 20 },
+                  hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="p-6 md:p-5 lg:p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group text-center lg:text-left"
               >
                 <div className="mb-4 md:mb-3 lg:mb-4 flex justify-center lg:justify-start transform group-hover:scale-110 transition-transform duration-500">{feature.icon}</div>
@@ -83,10 +84,10 @@ export const About = () => {
 
         <div className="lg:col-span-5 h-[400px] md:h-[500px] lg:h-full">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
+            initial={{ opacity: 0, scale: 0.98, x: 20 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-2xl group"
           >
             <Image

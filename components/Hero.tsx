@@ -13,8 +13,8 @@ export const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.3,
       },
     },
   };
@@ -25,7 +25,7 @@ export const Hero = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8,
+        duration: 1,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
@@ -88,15 +88,15 @@ export const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ 
             opacity: 1, 
             scale: 1, 
             y: [0, -15, 0] 
           }}
           transition={{ 
-            opacity: { duration: 1, delay: 0.5 },
-            scale: { duration: 1, delay: 0.5 },
+            opacity: { duration: 1.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
+            scale: { duration: 1.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
             y: {
               duration: 4,
               repeat: Infinity,

@@ -58,7 +58,7 @@ export default function LandingPage() {
     <motion.main 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
       className="min-h-screen bg-surface selection:bg-secondary-container/30 overflow-x-hidden"
     >
       {/* Scroll Progress Bar */}

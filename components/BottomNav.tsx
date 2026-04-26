@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'motion/react';
 import { Rocket, Eye, Award, Share2 } from 'lucide-react';
 import { smoothScrollTo } from '@/lib/utils';
 
@@ -13,7 +14,12 @@ export const BottomNav = () => {
   ];
 
   return (
-    <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] bg-[#160038]/90 backdrop-blur-md border border-white/10 rounded-2xl z-50 md:hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-2 py-2 transform-gpu">
+    <motion.nav 
+      initial={{ y: 100, opacity: 0, x: '-50%' }}
+      animate={{ y: 0, opacity: 1, x: '-50%' }}
+      transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed bottom-6 left-1/2 w-[92%] max-w-[400px] bg-[#160038]/90 backdrop-blur-md border border-white/10 rounded-2xl z-50 md:hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-2 py-2 transform-gpu"
+    >
       <div className="flex justify-around items-center">
         {navItems.map((item) => (
           <a 
@@ -32,6 +38,6 @@ export const BottomNav = () => {
           </a>
         ))}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
